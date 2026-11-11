@@ -88,6 +88,8 @@ class PageResult:
     output_path: Optional[str] = None
     headers_path: Optional[str] = None
     error: Optional[str] = None
+    # 最终成功之前每次失败尝试的原因（首次即成功则为空）
+    retry_errors: list[str] = field(default_factory=list)
 
     @property
     def request_count(self) -> int:
@@ -158,6 +160,19 @@ class RunResult:
             lines.append("失败页面：")
             for p in self.failed_pages:
                 lines.append(f"  · {p.page_name}：{one_line(p.error) or '未知原因'}")
+                for err in p.retry_errors:
+                    lines.append(f"      尝试失败：{one_line(err)}")
+        retried_ok = [p for p in self.pages if p.success and p.attempts > 1]
+        if retried_ok:
+            lines.append("重试后成功（已确认捕获到目标数据）：")
+            for p in retried_ok:
+                op = p.captured.operation_name if p.captured else "未知 operation"
+                lines.append(
+                    f"  · {p.page_name}：第 {p.attempts} 次尝试成功，"
+                    f"已捕获 {op}（共 {p.request_count} 条请求）"
+                )
+                for err in p.retry_errors:
+                    lines.append(f"      前次失败原因：{one_line(err)}")
         return "\n".join(lines)
 
     def schema(self) -> dict[str, Any]:
@@ -188,11 +203,18 @@ class RunResult:
                     "url": p.source_url,
                     "success": p.success,
                     "attempts": p.attempts,
-                    "duration_s": round(p.duration_s, 2),
+                    "retried": p.attempts > 1,
+                    # 捕获到的目标 operationName，用于确认「确实拿到了想要的数据」
+                    "operation": p.captured.operation_name if p.captured else None,
                     "request_count": p.request_count,
+                    "duration_s": round(p.duration_s, 2),
                     "output": p.output_path,
                     "headers": p.headers_path,
                     "error": one_line(p.error, limit=500) or None,
+                    # 最终成功前每次失败的原因（首次即成功则为空列表）
+                    "retry_errors": [
+                        one_line(err, limit=500) for err in p.retry_errors
+                    ],
                 }
                 for p in self.pages
             ],

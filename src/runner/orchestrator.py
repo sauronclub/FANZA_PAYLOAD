@@ -94,13 +94,27 @@ class Orchestrator:
                     page_result = self._capture_with_retry(browser, spec)
                     result.pages.append(page_result)
                     if page_result.success:
-                        self._logger.info(
-                            "[%d/%d] %s 完成，用时 %.1f 秒",
-                            index,
-                            len(enabled),
-                            spec.name,
-                            page_result.duration_s,
-                        )
+                        op_name = page_result.captured.operation_name if page_result.captured else "?"
+                        if page_result.attempts > 1:
+                            self._logger.info(
+                                "[%d/%d] %s 第 %d 次尝试成功，已捕获目标请求（%s，共 %d 条），用时 %.1f 秒",
+                                index,
+                                len(enabled),
+                                spec.name,
+                                page_result.attempts,
+                                op_name,
+                                page_result.request_count,
+                                page_result.duration_s,
+                            )
+                        else:
+                            self._logger.info(
+                                "[%d/%d] %s 完成，已捕获目标请求（%s），用时 %.1f 秒",
+                                index,
+                                len(enabled),
+                                spec.name,
+                                op_name,
+                                page_result.duration_s,
+                            )
                     else:
                         self._logger.error(
                             "[%d/%d] %s 失败：%s",
@@ -222,6 +236,8 @@ class Orchestrator:
         max_attempt = max(1, self._settings.max_retry)
         started = time.monotonic()
         last_error = "未知错误"
+        # 记录最终成功之前每次失败的原因，供摘要与通知展示
+        retry_errors: list[str] = []
 
         wait_ms = spec.timeout_ms or self._settings.page_wait_seconds * 1000
         settle_ms = spec.settle_ms if spec.settle_ms is not None else DEFAULT_SETTLE_MS
@@ -246,14 +262,17 @@ class Orchestrator:
                     extra_requests=outcome.extras,
                     output_path=str(payload_path),
                     headers_path=str(headers_path),
+                    retry_errors=retry_errors,
                 )
             except (CaptureError, StorageError, FanzaPayloadError) as exc:
                 last_error = f"{exc.__class__.__name__}: {exc}"
+                retry_errors.append(last_error)
                 self._logger.warning(
                     "%s 第 %d/%d 次尝试失败：%s", spec.name, attempt, max_attempt, last_error
                 )
             except Exception as exc:  # noqa: BLE001 - 兜底，避免单页异常中断整体
                 last_error = f"{exc.__class__.__name__}: {exc}"
+                retry_errors.append(last_error)
                 self._logger.exception(
                     "%s 第 %d/%d 次尝试出现未预期异常", spec.name, attempt, max_attempt
                 )
@@ -274,4 +293,5 @@ class Orchestrator:
             attempts=max_attempt,
             duration_s=time.monotonic() - started,
             error=last_error,
+            retry_errors=retry_errors,
         )
