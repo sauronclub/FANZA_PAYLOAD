@@ -14,7 +14,7 @@ on:
   workflow_dispatch: {}    # 支持在 Actions 页面手动触发
 
 permissions:
-  contents: read
+  contents: write   # 允许把捕获结果回写到仓库
 
 concurrency:
   group: fanza-daily-capture
@@ -60,6 +60,18 @@ jobs:
 
       - name: Run capture
         run: python main.py
+
+      - name: Commit captured outputs back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PAYLOAD HEADERS
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update captured payloads (run ${{ github.run_id }})"
+            git push
+          fi
 
       - name: Upload logs on failure
         if: failure()
