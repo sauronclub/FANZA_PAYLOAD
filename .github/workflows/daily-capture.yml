@@ -1,0 +1,70 @@
+# ============================================================
+# FANZA GraphQL Payload 每日定时捕获
+# 触发时间：UTC 17:00 = 北京时间（UTC+8）次日凌晨 1:00
+# 说明：GitHub Actions 的 schedule 可能有几分钟到半小时的延迟，
+#       属于平台正常行为。
+# 敏感信息全部来自仓库 Secrets（Settings → Secrets and variables → Actions）
+# ============================================================
+
+name: Daily Capture
+
+on:
+  schedule:
+    - cron: '0 17 * * *'   # 北京时间每天凌晨 1:00
+  workflow_dispatch: {}    # 支持在 Actions 页面手动触发
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fanza-daily-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # ── 非敏感配置（直接内联）─────────────────────────
+      GRAPHQL_API_URL: https://api.video.dmm.co.jp/graphql
+      BROWSER_HEADLESS: 'true'
+      PAGE_WAIT_SECONDS: '45'
+      MAX_RETRY: '3'
+      # ── 敏感配置（来自仓库 Secrets）───────────────────
+      FEISHU_GROUP_BOT_WEBHOOK_URL: ${{ secrets.FEISHU_GROUP_BOT_WEBHOOK_URL }}
+      FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_PREFIX: ${{ secrets.R2_PREFIX }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium --with-deps
+
+      - name: Validate config
+        run: python main.py --validate
+
+      - name: Run capture
+        run: python main.py
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 7
