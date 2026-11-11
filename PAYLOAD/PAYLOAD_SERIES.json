@@ -1,0 +1,36 @@
+{
+  "operationName": "AvSearch",
+  "query": "query AvSearch($limit: Int!, $offset: Int, $floor: PPVFloor, $sort: ContentSearchPPVSort!, $queryWord: String, $filter: ContentSearchPPVFilterInput, $facetLimit: Int!, $hasFacet: Boolean!, $hasGenreDescription: Boolean!, $legacyProductType: LegacyProductType = DOWNLOAD, $hasLegacyProductType: Boolean!, $isLoggedIn: Boolean!, $excludeUndelivered: Boolean!, $shouldFetchGenreRelatedWords: Boolean!, $shouldFetchDirectorRelatedWords: Boolean!, $shouldFetchLabelRelatedWords: Boolean!, $shouldFetchSeriesRelatedWords: Boolean!, $shouldFetchActressRelatedWords: Boolean!, $shouldFetchMakerRelatedWords: Boolean!, $shouldFetchHistrionRelatedWords: Boolean!, $shouldGetBookmark: Boolean!, $guestToken: String!) {\n  legacySearchPPV(\n    limit: $limit\n    offset: $offset\n    floor: $floor\n    sort: $sort\n    queryWord: $queryWord\n    filter: $filter\n    facetLimit: $facetLimit\n    includeExplicit: true\n    excludeUndelivered: $excludeUndelivered\n  ) {\n    result {\n      contents {\n        ...searchContent\n        contentType\n        actresses {\n          id\n          name\n          __typename\n        }\n        maker {\n          id\n          name\n          __typename\n        }\n        isInWishList @include(if: $shouldGetBookmark)\n        __typename\n      }\n      facet @include(if: $hasFacet) {\n        ...contentSearchFacet\n        __typename\n      }\n      pageInfo {\n        ...paginationFragment\n        __typename\n      }\n      isNoIndex\n      searchCriteria {\n        ...contentSearchCriteria\n        __typename\n      }\n      osusumeGalleryLinks {\n        text\n        url\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\nfragment searchContent on PPVContentSearchContent {\n  id\n  title\n  packageImage {\n    mediumUrl\n    largeUrl\n    __typename\n  }\n  sampleImages {\n    number\n    largeUrl\n    __typename\n  }\n  sampleMovie {\n    hlsUrl\n    mp4Url\n    vrUrl\n    __typename\n  }\n  releaseStatus\n  review {\n    average\n    count\n    __typename\n  }\n  isExclusiveDelivery\n  bookmarkCount\n  salesInfo {\n    lowestPrice {\n      productId\n      price\n      discountPrice\n      legacyProductType\n      __typename\n    }\n    priceByLegacyProductType(legacyProductType: $legacyProductType) @include(if: $hasLegacyProductType) {\n      discountPrice\n      price\n      legacyProductType\n      __typename\n    }\n    campaign {\n      name\n      endAt\n      discountRate\n      __typename\n    }\n    pointRewardCampaign {\n      name\n      __typename\n    }\n    hasMultiplePrices\n    __typename\n  }\n  isOnSale\n  deliveryStartAt\n  utilizationStatus @include(if: $isLoggedIn)\n  isInBasket @include(if: $isLoggedIn)\n  isInGuestBasket(token: $guestToken)\n  __typename\n}\nfragment contentSearchFacet on PPVContentSearchFacet {\n  floor {\n    items {\n      floor\n      count\n      __typename\n    }\n    __typename\n  }\n  actress {\n    items {\n      id\n      name\n      count\n      __typename\n    }\n    __typename\n  }\n  maker {\n    items {\n      id\n      name\n      count\n      __typename\n    }\n    __typename\n  }\n  label {\n    items {\n      id\n      name\n      count\n      __typename\n    }\n    __typename\n  }\n  series {\n    items {\n      id\n      name\n      count\n      __typename\n    }\n    __typename\n  }\n  genreAndCampaignCombined {\n    items {\n      ... on GenreFacetItem {\n        count\n        id\n        name\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\nfragment paginationFragment on OffsetPageInfoWithTotal {\n  offset\n  limit\n  hasNext\n  totalCount\n  __typename\n}\nfragment contentSearchCriteria on PPVContentSearchCriteria {\n  sort\n  filter {\n    actressIds {\n      ids {\n        id\n        name\n        nameRuby\n        relatedWords @include(if: $shouldFetchActressRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    authorIds {\n      ids {\n        id\n        name\n        nameRuby\n        __typename\n      }\n      op\n      __typename\n    }\n    directorIds {\n      ids {\n        id\n        name\n        nameRuby\n        relatedWords @include(if: $shouldFetchDirectorRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    genreIds {\n      ids {\n        id\n        name\n        relatedWords @include(if: $shouldFetchGenreRelatedWords)\n        description @include(if: $hasGenreDescription)\n        __typename\n      }\n      op\n      __typename\n    }\n    histrionIds {\n      ids {\n        id\n        name\n        nameRuby\n        relatedWords @include(if: $shouldFetchHistrionRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    labelIds {\n      ids {\n        id\n        name\n        relatedWords @include(if: $shouldFetchLabelRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    makerIds {\n      ids {\n        id\n        name\n        relatedWords @include(if: $shouldFetchMakerRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    seriesIds {\n      ids {\n        id\n        name\n        relatedWords @include(if: $shouldFetchSeriesRelatedWords)\n        __typename\n      }\n      op\n      __typename\n    }\n    saleIds {\n      ids {\n        id\n        name\n        __typename\n      }\n      op\n      __typename\n    }\n    pointRewardCampaignIds {\n      ids {\n        id\n        name\n        __typename\n      }\n      op\n      __typename\n    }\n    contentTagIds {\n      ids {\n        id\n        name\n        __typename\n      }\n      op\n      __typename\n    }\n    isSaleItemsOnly\n    __typename\n  }\n  __typename\n}",
+  "variables": {
+    "excludeUndelivered": true,
+    "facetLimit": 100,
+    "filter": {
+      "isSaleItemsOnly": false,
+      "seriesIds": {
+        "ids": [
+          {
+            "id": "5087"
+          }
+        ],
+        "op": "AND"
+      }
+    },
+    "floor": "AV",
+    "guestToken": "",
+    "hasFacet": true,
+    "hasGenreDescription": false,
+    "hasLegacyProductType": false,
+    "isLoggedIn": false,
+    "limit": 120,
+    "offset": 0,
+    "shouldFetchActressRelatedWords": false,
+    "shouldFetchDirectorRelatedWords": false,
+    "shouldFetchGenreRelatedWords": false,
+    "shouldFetchHistrionRelatedWords": false,
+    "shouldFetchLabelRelatedWords": false,
+    "shouldFetchMakerRelatedWords": false,
+    "shouldFetchSeriesRelatedWords": true,
+    "shouldGetBookmark": false,
+    "sort": "DELIVERY_START_DATE"
+  }
+}

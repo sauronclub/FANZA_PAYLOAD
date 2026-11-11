@@ -1,0 +1,17 @@
+{
+  "operationName": "ContentRankingPage",
+  "query": "query ContentRankingPage($limit: Int!, $offset: Int!, $filter: PPVContentRankingFilterInput, $isAmateur: Boolean = false, $isAnime: Boolean = false, $isLoggedIn: Boolean = false, $shouldGetBookmark: Boolean!) {\n  ppvContentRanking(limit: $limit, offset: $offset, filter: $filter) {\n    items {\n      id\n      rank\n      content {\n        title\n        releaseStatus\n        packageImage {\n          mediumUrl\n          largeUrl\n          __typename\n        }\n        wishlistCount\n        isExclusiveDelivery\n        contentType\n        utilizationStatus @include(if: $isLoggedIn)\n        isInWishList @include(if: $shouldGetBookmark)\n        pricing {\n          sale {\n            id\n            name\n            endAt\n            __typename\n          }\n          pointRewardCampaign {\n            name\n            __typename\n          }\n          productPricing {\n            id\n            priority\n            regularPriceInclusiveTax\n            __typename\n          }\n          lowestEffectivePriceInclusiveTax\n          lowestRegularPriceInclusiveTax\n          hasMultiplePrices\n          __typename\n        }\n        actresses @skip(if: $isAmateur) {\n          id\n          name\n          __typename\n        }\n        amateurActress @include(if: $isAmateur) {\n          id\n          name\n          bustCup\n          bust\n          waist\n          hip\n          __typename\n        }\n        maker @include(if: $isAnime) {\n          id\n          name\n          __typename\n        }\n        sampleImages {\n          number\n          largeImageUrl\n          __typename\n        }\n        hasSampleMovie\n        review {\n          average\n          total\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    ... on PPVContentTrendingRanking {\n      targetWindowEndAt\n      __typename\n    }\n    __typename\n  }\n}",
+  "variables": {
+    "filter": {
+      "daily": {
+        "floor": "AV"
+      }
+    },
+    "isAmateur": false,
+    "isAnime": false,
+    "isLoggedIn": false,
+    "limit": 20,
+    "offset": 0,
+    "shouldGetBookmark": false
+  }
+}

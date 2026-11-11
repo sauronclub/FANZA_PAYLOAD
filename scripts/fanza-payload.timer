@@ -1,0 +1,19 @@
+# ============================================================
+# systemd 定时器：每天日本时间 01:00 触发捕获任务
+# 说明：OnCalendar 显式指定时区，因此不受 VPS 系统时区影响。
+# 安装步骤见 README.md「VPS 部署」章节。
+# ============================================================
+[Unit]
+Description=每日触发 FANZA GraphQL Payload 捕获
+
+[Timer]
+# 每天 01:00（日本时间）执行
+OnCalendar=*-*-* 01:00:00 Asia/Tokyo
+# 若机器在触发时刻处于关机/休眠，开机后补跑一次
+Persistent=true
+# 随机延迟最多 10 分钟，避免与其他任务同时抢占资源
+RandomizedDelaySec=600
+Unit=fanza-payload.service
+
+[Install]
+WantedBy=timers.target

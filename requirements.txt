@@ -1,0 +1,10 @@
+# FANZA GraphQL Payload 捕获器 —— 运行期依赖
+# 说明：仅列出直接依赖，便于生产环境锁定与审计。
+#
+# 依赖只有这三个，无需再装任何东西：
+#   · 配置改用 Python 模块（config/pages.py、config/logging.py）→ 不再需要 PyYAML；
+#   · R2 上传改用自带的标准库 SigV4 签名 + requests → 不再需要 boto3/botocore。
+
+playwright>=1.45.0        # 浏览器自动化（Playwright Python 绑定）
+python-dotenv>=1.0.1      # 读取 .env 环境变量
+requests>=2.32.0          # 飞书告警、Cloudflare R2 上传（HTTP 调用）

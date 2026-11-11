@@ -1,0 +1,13 @@
+{
+  "operationName": "SeriesRankingPage",
+  "query": "query SeriesRankingPage($limit: Int!, $offset: Int, $filter: PPVSeriesRankingFilterInput!) {\n  ppvSeriesRanking(limit: $limit, offset: $offset, filter: $filter) {\n    items {\n      id\n      rank\n      series {\n        id\n        name\n        description\n        totalContentsOnSale\n        latestContent {\n          id\n          title\n          packageImage {\n            mediumUrl\n            __typename\n          }\n          contentType\n          ... on PPVContentSummary {\n            releaseStatus\n            isExclusiveDelivery\n            contentType\n            pricing {\n              sale {\n                id\n                name\n                __typename\n              }\n              pointRewardCampaign {\n                name\n                __typename\n              }\n              __typename\n            }\n            maker {\n              id\n              name\n              __typename\n            }\n            __typename\n          }\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}",
+  "variables": {
+    "filter": {
+      "monthly": {
+        "floor": "AV"
+      }
+    },
+    "limit": 100,
+    "offset": 0
+  }
+}

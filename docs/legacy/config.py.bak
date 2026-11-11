@@ -1,0 +1,31 @@
+# 第一类：排行榜URL
+TYPE_DAILY_URL = "https://video.dmm.co.jp/av/ranking/?term=daily" # 每日排行榜
+TYPE_WEEKLY_URL = "https://video.dmm.co.jp/av/ranking/?term=weekly" # 周排行榜
+TYPE_MONTHLY_URL = "https://video.dmm.co.jp/av/ranking/?term=monthly" # 月排行榜
+TYPE_MONTHLY_ACTRESS_URL = "https://video.dmm.co.jp/av/ranking/?term=monthly&type=actress" # 月演员排行榜
+TYPE_MONTHLY_SERIES_URL = "https://video.dmm.co.jp/av/ranking/?term=monthly&type=series" # 月系列排行榜
+
+TYPE_REALTIME_URL = "https://video.dmm.co.jp/av/ranking/?term=realtime" # 实时排行榜
+TYPE_REALTIME_VR_URL = "https://video.dmm.co.jp/av/ranking/?term=realtime&only=vr" # VR实时排行榜
+
+TYPE_LATEST_RELEASE_URL = "https://video.dmm.co.jp/av/ranking/?release=latest" # 新片排行榜
+
+# 第二类：详情URL
+# 影片详情页URL
+TYPE_ID_URL = "https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=snos00097/" # 影片详情页
+
+# 演员清单页及单人影片清单URL
+TYPE_ACTRESS_URL = "https://video.dmm.co.jp/av/list/?actress=1087625" # 演员影片清单页
+TYPE_ACTRESS_SOLO_URL = "https://video.dmm.co.jp/av/list/?actress=1087625&genre=4025" # 演员单人影片清单页
+
+# 系列详情页URL
+TYPE_SERIES_URL = "https://video.dmm.co.jp/av/list/?series=5087&sort=date" # 系列详情页
+
+# 新片上映清单页URL
+TYPE_DATE_URL = "https://video.dmm.co.jp/av/list/?date=2026-10-01" # 新片上映清单页
+
+# 第三类：GraphQL API URL
+GRAPHQL_API_URL = "https://api.video.dmm.co.jp/graphql" # GraphQL API URL
+
+# 飞书机器人配置
+FEISHU_GROUP_BOT_WEBHOOK_URL = "https://open.feishu.cn/open-apis/bot/v2/hook/eeb83200-a208-4bdf-8395-61db6ce51046" # 飞书机器人 Webhook URL

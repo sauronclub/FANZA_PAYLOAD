@@ -1,0 +1,25 @@
+# ── Python ────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ── 虚拟环境 ──────────────────────────────
+.venv/
+venv/
+env/
+
+# ── 运行产物 ──────────────────────────────
+logs/
+*.log
+
+# ── 本地私密配置（含飞书 webhook，切勿提交）──
+.env
+
+# ── 开发用临时脚本与验证产物 ───────────────
+tools/_verify_out/
+tools/_probe_out.json
+tools/legacy/_verify_out/
+
+# ── 本地工作区数据 ────────────────────────
+.workbuddy/

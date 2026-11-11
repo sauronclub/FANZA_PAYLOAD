@@ -1,0 +1,9 @@
+{
+  "operationName": "NewReleaseRankingPage",
+  "query": "query NewReleaseRankingPage($limit: Int!, $shouldGetBookmark: Boolean!, $isLoggedIn: Boolean!) {\n  legacySearchPPV(\n    limit: $limit\n    floor: AV\n    filter: {legacyReleaseStatus: LATEST_RELEASE}\n    sort: SALES_RANK_SCORE\n  ) {\n    result {\n      ...floorTopPPVContentSearchResult\n      contents {\n        __typename\n        actresses {\n          id\n          name\n          __typename\n        }\n        review {\n          average\n          count\n          __typename\n        }\n        isInWishList @include(if: $shouldGetBookmark)\n        bookmarkCount\n        packageImage {\n          largeUrl\n          __typename\n        }\n        sampleImages {\n          number\n          largeUrl\n          __typename\n        }\n        sampleMovie {\n          hlsUrl\n          mp4Url\n          vrUrl\n          __typename\n        }\n        utilizationStatus @include(if: $isLoggedIn)\n      }\n      __typename\n    }\n    __typename\n  }\n}\nfragment floorTopPPVContentSearchResult on PPVContentSearchResult {\n  contents {\n    ...floorTopPPVContentSearchContent\n    __typename\n  }\n  __typename\n}\nfragment floorTopPPVContentSearchContent on PPVContentSearchContent {\n  id\n  title\n  contentType\n  packageImage {\n    smallUrl\n    mediumUrl\n    __typename\n  }\n  releaseStatus\n  isExclusiveDelivery\n  isInWishList @include(if: $shouldGetBookmark)\n  salesInfo {\n    lowestPrice {\n      productId\n      price\n      discountPrice\n      sellingPrice\n      legacyProductType\n      __typename\n    }\n    campaign {\n      name\n      endAt\n      discountRate\n      __typename\n    }\n    pointRewardCampaign {\n      name\n      __typename\n    }\n    hasMultiplePrices\n    __typename\n  }\n  __typename\n}",
+  "variables": {
+    "isLoggedIn": false,
+    "limit": 40,
+    "shouldGetBookmark": false
+  }
+}

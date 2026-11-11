@@ -1,0 +1,39 @@
+# ============================================================
+# systemd 服务单元：一次性执行捕获任务
+# 安装步骤见 README.md「VPS 部署」章节。
+# 注意：请按实际部署路径修改 WorkingDirectory / ExecStart / User。
+# ============================================================
+[Unit]
+Description=FANZA GraphQL Payload 捕获任务
+Documentation=file:/opt/fanza-payload/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=fanza
+Group=fanza
+WorkingDirectory=/opt/fanza-payload
+ExecStart=/opt/fanza-payload/.venv/bin/python /opt/fanza-payload/main.py
+
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONIOENCODING=utf-8
+# 浏览器需要独立目录，避免与其他服务冲突
+Environment=HOME=/home/fanza
+
+# 单次执行最长 30 分钟，超时则终止
+TimeoutStartSec=1800
+# 由 timer 负责调度，单次失败不自动重启
+Restart=no
+
+StandardOutput=journal
+StandardError=journal
+
+# ── 安全加固（如遇权限问题可逐项注释掉）──────────────────
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=false
+
+[Install]
+WantedBy=multi-user.target
