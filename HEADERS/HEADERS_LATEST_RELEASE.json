@@ -1,19 +1,11 @@
 {
-  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
-  "accept-encoding": "gzip, deflate, br, zstd",
-  "accept-language": "ja-JP",
-  "content-length": "1877",
-  "content-type": "application/json",
-  "cookie": "i3_ab=64cf7ec9-c1fa-4187-8d4b-a47420fc8c17; rieSh3Ee_ga=GA1.1.550222632.1794439373; _gcl_au=1.1.314198759.1794439373; age_check_done=1; FPID=FPID2.3.flmGgpirFLME%2FsGI3vKNRfhzY5dbUAUsn1McwNY2cbg%3D.1794439373; FPAU=1.3.1389380928.1794439373; FPGSID=1.1794439373.1794439373.G-KQYE0DE5JW.KAg_hsBFQgFxQgWaKLm65w; FPLC=iwV%2BD5BMW8B%2BnUBr5XSwbVcTwPnB9xr7CO%2BJOSOuv%2FBzqtPjgoL%2BLicVDQG2OufQj4O7T89z7NSaXMdNL%2Bi2iNmz6lW8sr6Xdi2E0g9wF5yt8ujozEESME1vV1YfhA%3D%3D; _twpid=tw.1794439374741.442411584756424559; _twsid=1794439374741-244067366.1.1794439374758; snexid_r=bb385d85-5a42-4a71-8e49-adeb04d96296; _yjsu_yjad=1794439374.6f49101f-7257-4c6d-be0a-da543d325965; _im_vid=01M76EQTEWHSK7QWSRMVTWQN09; ckcy=2; is_intarnal=false; deviceIdentify=xkrMi3XZwLQCYaF8vUIF7SoFzGLhjn; rieSh3Ee_ga_KQYE0DE5JW=GS2.1.s1794439372$o1$g1$t1794439393$j39$l0$h341492085",
-  "fanza-device": "BROWSER",
-  "origin": "https://video.dmm.co.jp",
-  "priority": "u=1, i",
+  "sec-ch-ua-platform": "\"Windows\"",
   "referer": "https://video.dmm.co.jp/",
+  "accept-language": "ja-JP",
   "sec-ch-ua": "\"Chromium\";v=\"158\", \"Not.A/Brand\";v=\"24\", \"HeadlessChrome\";v=\"158\"",
   "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": "\"Windows\"",
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-site",
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  "fanza-device": "BROWSER",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+  "content-type": "application/json"
 }
