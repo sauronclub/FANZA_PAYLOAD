@@ -62,6 +62,9 @@ jobs:
         run: python main.py
 
       - name: Commit captured outputs back to repo
+        # 即使部分页面失败（main.py 退出码 1）也回写已成功捕获的文件，
+        # 避免一次偶发超时导致仓库数据整天不更新；运行本身仍标记为失败
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
