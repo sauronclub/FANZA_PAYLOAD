@@ -52,9 +52,9 @@ class FeishuNotifier(Notifier):
     def send_run_summary(self, result: RunResult) -> None:
         """推送运行摘要卡片。"""
         if result.ok:
-            title = f"FANZA Payload（ThinkPad） 捕获完成（{result.succeeded}/{result.total} 成功）"
+            title = f"FANZA Payload（GitHub Actions） 捕获完成（{result.succeeded}/{result.total} 成功）"
         else:
-            title = f"FANZA Payload（ThinkPad） 捕获异常（失败 {result.failed}/{result.total}）"
+            title = f"FANZA Payload（GitHub Actions） 捕获异常（失败 {result.failed}/{result.total}）"
         template = _COLOR_OK if result.ok else _COLOR_FAIL
         self._send_card(title, template, self._build_markdown(result))
 

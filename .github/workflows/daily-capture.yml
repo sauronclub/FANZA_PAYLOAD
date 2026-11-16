@@ -23,12 +23,12 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       # ── 非敏感配置（直接内联）─────────────────────────
       GRAPHQL_API_URL: https://api.video.dmm.co.jp/graphql
       BROWSER_HEADLESS: 'true'
-      PAGE_WAIT_SECONDS: '45'
+      PAGE_WAIT_SECONDS: '60'
       MAX_RETRY: '3'
       # ── 敏感配置（来自仓库 Secrets）───────────────────
       FEISHU_GROUP_BOT_WEBHOOK_URL: ${{ secrets.FEISHU_GROUP_BOT_WEBHOOK_URL }}
