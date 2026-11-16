@@ -1,19 +1,11 @@
 {
-  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
-  "accept-encoding": "gzip, deflate, br, zstd",
-  "accept-language": "ja-JP",
-  "content-length": "1877",
-  "content-type": "application/json",
-  "cookie": "i3_ab=d4b03485-2567-44fd-a40a-882f78f04cec; rieSh3Ee_ga=GA1.1.588715573.1794814694; _gcl_au=1.1.1682722522.1794814694; FPID=FPID2.3.rpVWrtNma4fzG4hpMhn7hILI%2F6KPZuAaUSQUDbQPM4A%3D.1794814694; FPAU=1.3.1917089762.1794814694; age_check_done=1; FPLC=hPEIsWo8WO%2BvDvgvZK0XzCm3Cm09E2JUdrix3Igj5QTy3AkKtp%2BObbB1ovHKcEyeCETMJJ6Vl1t%2BY5zmu1aBeBWFeoQHmgrnswsZu4uRu5ecZkofaakdTJgqUvbChg%3D%3D; _twpid=tw.1794814695491.87502233624394047; _twsid=1794814695491-364981598.1.1794814695510; _yjsu_yjad=1794814695.999bb06a-edc9-45ac-97ca-32cef2e5c800; snexid_r=c47b94a8-8e9f-4e5d-a407-09dfc4f50520; ckcy=2; is_intarnal=false; deviceIdentify=KJEaOczkP62rvQyY2jDykNKznE80yS; FPGSID=1.1794814694.1794815112.G-KQYE0DE5JW.kh0w_Y5X6dxGRNfSXDz2kQ; rieSh3Ee_ga_KQYE0DE5JW=GS2.1.s1794814694$o1$g1$t1794815117$j56$l0$h1188067257",
-  "fanza-device": "BROWSER",
-  "origin": "https://video.dmm.co.jp",
-  "priority": "u=1, i",
+  "sec-ch-ua-platform": "\"Windows\"",
   "referer": "https://video.dmm.co.jp/",
+  "accept-language": "ja-JP",
   "sec-ch-ua": "\"HeadlessChrome\";v=\"159\", \"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"159\"",
   "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": "\"Windows\"",
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-site",
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  "fanza-device": "BROWSER",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+  "content-type": "application/json"
 }
