@@ -1,11 +1,19 @@
 {
-  "sec-ch-ua-platform": "\"Windows\"",
-  "referer": "https://video.dmm.co.jp/",
+  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+  "accept-encoding": "gzip, deflate, br, zstd",
   "accept-language": "ja-JP",
+  "content-length": "6795",
+  "content-type": "application/json",
+  "cookie": "i3_ab=548f981e-1b7f-46ea-8d7d-df9a730c283b; rieSh3Ee_ga=GA1.1.1056399706.1795130803; _gcl_au=1.1.1726815340.1795130803; age_check_done=1; FPID=FPID2.3.0GuTtQGYTGGu1aZb7b8ExF0n8XPUpqGTZt2l5BlTsio%3D.1795130803; FPAU=1.3.1333097417.1795130804; FPLC=IgiehccldR9DtThihFxfkIRxagxc5ShkViHjAWoQwl2MtmS%2FY5ftH2iTtNrzgpkek6E9b74Rb%2B7%2BEPw7q2%2FOMgVcs0df9o89nWqfbLdOn1Rm%2BdQ280BxB7dZmMMIyw%3D%3D; FPGSID=1.1795130804.1795130804.G-KQYE0DE5JW.sxjvyrhU0PedP_sMrPmHDA; _twpid=tw.1795130804422.32421233726670400; snexid_r=ffac222d-f637-45b3-bc3b-bdd92901b7f0; _yjsu_yjad=1795130804.529787bd-efa8-41df-a70f-af871df8842c; _im_vid=01M7V24JQ3ZYGG6S0Z509RK25F; cds_deliver_id=975a5e0e-da6d-47d7-968f-248acbfb5840; ckcy=2; is_intarnal=false; deviceIdentify=oQMUKmU4S0LrAq8jEKPsJs1lazHlmy; _twsid=1795130804422-911367595.1.1795130807954; rieSh3Ee_ga_KQYE0DE5JW=GS2.1.s1795130803$o1$g1$t1795130824$j39$l0$h760380260",
+  "fanza-device": "BROWSER",
+  "origin": "https://video.dmm.co.jp",
+  "priority": "u=1, i",
+  "referer": "https://video.dmm.co.jp/",
   "sec-ch-ua": "\"HeadlessChrome\";v=\"159\", \"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"159\"",
   "sec-ch-ua-mobile": "?0",
-  "fanza-device": "BROWSER",
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
-  "content-type": "application/json"
+  "sec-ch-ua-platform": "\"Windows\"",
+  "sec-fetch-dest": "empty",
+  "sec-fetch-mode": "cors",
+  "sec-fetch-site": "same-site",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }

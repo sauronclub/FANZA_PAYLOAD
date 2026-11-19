@@ -1,19 +1,11 @@
 {
-  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
-  "accept-encoding": "gzip, deflate, br, zstd",
-  "accept-language": "ja-JP",
-  "content-length": "2125",
-  "content-type": "application/json",
-  "cookie": "i3_ab=e1343141-d27c-43c7-9adf-c2d97fe06bc4; rieSh3Ee_ga=GA1.1.1755167340.1795043973; _gcl_au=1.1.1374082103.1795043974; age_check_done=1; FPID=FPID2.3.Feapo%2BCiimgTgqng9f4anb0SzYKq%2BID4xpQ8x6Rtjk8%3D.1795043973; FPLC=WPiE3L0CQGhKy%2FFV5MOe6qsWforyUvXshveg6ZLgRvWKdQPvI0G4Q5pSnkU4Tmi6P81sF0G5BQSpOrT%2FBej49XZVFJ628m5%2BC5xVbxzmQVJt2UXgoCWscadlEXUwig%3D%3D; FPAU=1.3.172948995.1795043974; FPGSID=1.1795043973.1795043973.G-KQYE0DE5JW.DABmBuI9Z4XuG5lY3v8-gQ; _twpid=tw.1795043974780.434626189226268785; snexid_r=7581ec1a-4812-4a36-ab67-52ed3da4c212; cds_deliver_id=1b7b3b41-d8ef-4ea8-ab34-60fa6dac6e95; _yjsu_yjad=1795043975.9b6d4f74-93a3-4df8-a95b-39bafe487a4e; _im_vid=01M7RFARCBHJ8W064VSPNHVMVS; ckcy=2; _twsid=1795043974780-402730571.1.1795043976164; is_intarnal=false; deviceIdentify=OquhkEvUwpkZ3ufQWAG6bE1ceNzsgg; rieSh3Ee_ga_KQYE0DE5JW=GS2.1.s1795043973$o1$g1$t1795044046$j53$l0$h1824001968",
-  "fanza-device": "BROWSER",
-  "origin": "https://video.dmm.co.jp",
-  "priority": "u=1, i",
+  "sec-ch-ua-platform": "\"Windows\"",
   "referer": "https://video.dmm.co.jp/",
+  "accept-language": "ja-JP",
   "sec-ch-ua": "\"HeadlessChrome\";v=\"159\", \"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"159\"",
   "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": "\"Windows\"",
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-site",
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  "fanza-device": "BROWSER",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+  "content-type": "application/json"
 }
