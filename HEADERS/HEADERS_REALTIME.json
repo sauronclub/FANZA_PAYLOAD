@@ -1,19 +1,11 @@
 {
-  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
-  "accept-encoding": "gzip, deflate, br, zstd",
-  "accept-language": "ja-JP",
-  "content-length": "2155",
-  "content-type": "application/json",
-  "cookie": "i3_ab=05b99406-cc97-49de-87ac-9a51e6d28f3c; rieSh3Ee_ga=GA1.1.1763000689.1795489910; _gcl_au=1.1.1380963059.1795489910; age_check_done=1; FPID=FPID2.3.9jBmg8SagmnbkzigNuRvUpXPdBMsEi8YjozRbugWJL0%3D.1795489910; FPAU=1.3.1218353699.1795489910; FPLC=yTGCSo5chwQdEqmfKJA4VGswMJVpCcr9FfUMmLgtNbVyK%2B4BkwbQ7mem9CywX%2FQVCcEaEOfR6%2BUsFQKhCz7VexL8b1eck4qFDM16K2hLOEBg2%2FWLtY0OjgQz46eqow%3D%3D; FPGSID=1.1795489910.1795489910.G-KQYE0DE5JW.Lh7-xp7LRr3Qd8W-8OmrgA; _yjsu_yjad=1795489911.0578a05f-2f69-45b0-bf41-470c8a3e9e95; snexid_r=e23567e1-7dfd-4073-bfe0-88a2c10ebe19; ckcy=2; is_intarnal=false; deviceIdentify=OuwYNlABMlyMPcJ6Dfoez0pXKk4U1n; rieSh3Ee_ga_KQYE0DE5JW=GS2.1.s1795489909$o1$g1$t1795489924$j45$l0$h791228951",
-  "fanza-device": "BROWSER",
-  "origin": "https://video.dmm.co.jp",
-  "priority": "u=1, i",
+  "sec-ch-ua-platform": "\"Windows\"",
   "referer": "https://video.dmm.co.jp/",
+  "accept-language": "ja-JP",
   "sec-ch-ua": "\"HeadlessChrome\";v=\"159\", \"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"159\"",
   "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": "\"Windows\"",
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-site",
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  "fanza-device": "BROWSER",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  "accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+  "content-type": "application/json"
 }
